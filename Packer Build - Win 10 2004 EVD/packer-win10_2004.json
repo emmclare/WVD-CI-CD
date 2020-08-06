@@ -76,7 +76,7 @@
           "Set-MpPreference -DisableRealtimeMonitoring $true",
           "Write-Host \"Defender RealTime scanning temporarily disabled\"",
          
-          "& \"J:\\Notepadpluspls\\notepadplusplus.cmd\"",
+          "& \"J:\\Notepadplusplus\\notepadplusplus.cmd\"",
           "Write-Host \"'Notepad\\7.7.1' installed\"",
 
           "& \"J:\\FSLogix\\FSLogix.cmd\"",
