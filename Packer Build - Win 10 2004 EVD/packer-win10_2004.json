@@ -69,7 +69,7 @@
           "$ErrorActionPreference='Stop'",
 
           "Import-Module -Name Smbshare -Force -Scope Local",
-          "$Usr='AzureAD\\'+\"{{user `AppInstallsStorageAccountName`}}\"",
+          "$Usr='Azure\\'+\"{{user `AppInstallsStorageAccountName`}}\"",
           "New-SmbMapping -LocalPath J: -RemotePath \"{{user `packaged_app_installs_path`}}\" -Username \"$Usr\" -Password \"{{user `AppInstallsStorageAccountKey`}}\"",
           "Write-Host \"'J:' drive mapped\"",
 
