@@ -80,7 +80,7 @@
           "Write-Host \"'Notepad\\7.7.1' installed\"",
 
           "& \"J:\\FSLogix\\FSLogix.cmd\"",
-          "Write-Host \"'FSLogix\\Latest' installed\"",
+          "Write-Host \"'FSLogix\\Latest' installed\""
           
       ]
     },
