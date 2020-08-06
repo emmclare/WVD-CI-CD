@@ -46,7 +46,7 @@
           "Project": "Packer IT Image"
       },
       
-      "location": "North Europe",
+      "location": "East US",
       "vm_size": "Standard_B2S",
 
       "async_resourcegroup_delete":true
