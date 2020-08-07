@@ -53,11 +53,11 @@
 
       "shared_image_gallery_destination": {
                 "resource_group": "{{user `wvd_goldimage_rg`}}",
-                "gallery_name": "SIGWVD",
-                "image_name": "windows10_wvd",
+                "gallery_name": "{{user `gallery_name`}}",
+                "image_name": "{{user `imageDefinitionName`}}",
                 "image_version": "1.0.{{user `Build_BuildNumber`}}",
                 "replication_regions": [
-                    "eastus"
+                    "{{user `location`}}"
                 ]
             }
 
@@ -75,7 +75,8 @@
           "& choco feature enable -n allowGlobalConfirmation",
           "Write-Host \"Chocolatey Installed.\"",
           "choco install fslogix",
-          "Write-Host \"fslogix Installed via choco.\""
+          "choco install notepadplusplus.install",
+          "Write-Host \"apps Installed via choco.\""
       ]
     },
 
