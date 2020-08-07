@@ -57,7 +57,7 @@
                 "image_name": "win10_wvd",
                 "image_version": "1.0.0",
                 "replication_regions": [
-                    "westeurope"
+                    "eastus"
                 ]
             }
 
