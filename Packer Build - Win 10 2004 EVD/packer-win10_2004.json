@@ -77,11 +77,13 @@
           "$smb = Get-SmbMapping -LocalPath J:",
           "Write-Host \"'J:' drive mapped to \" $smb.remotepath",
 
+          "Copy-Item -Path \"J:\" -Destination \"C:\\temp\" -recurse -Force", 
+
           "Set-MpPreference -DisableRealtimeMonitoring $true",
           "Write-Host \"Defender RealTime scanning temporarily disabled\"",
          
 
-          "& \"J:\\FSLogix\\FSLogix.cmd\"",
+          "& \"C:\\temp\\FSLogix\\FSLogix.cmd\"",
           "Write-Host \"'FSLogix\\Latest' installed\""
           
       ]
