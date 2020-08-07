@@ -1,0 +1,9 @@
+
+steps:
+- task: PackerBuild@1
+  displayName: 'Build immutable image'
+  inputs:
+    templateType: custom
+    customTemplateLocation: 'Packer Build - Win 10 2004 EVD/packer-win10_2004.json'
+    customTemplateParameters: '{"client_id":"$(PackerDevopsVMProvisioningServicePrincipalAppID)","client_secret":"$(PackerDevopsVMProvisioningServicePrincipalSecret)"}'
+    imageUri: BuildImage
