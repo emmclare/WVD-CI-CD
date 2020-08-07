@@ -52,7 +52,7 @@
       "async_resourcegroup_delete":true,
 
       "shared_image_gallery_destination": {
-                "resource_group": "{{env `wvd_goldimage_rg`}}",
+                "resource_group": "{{user `wvd_goldimage_rg`}}",
                 "gallery_name": "SIGWVD",
                 "image_name": "win10_wvd",
                 "image_version": "1.0.0",
