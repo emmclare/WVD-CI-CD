@@ -55,7 +55,7 @@
                 "resource_group": "{{user `wvd_goldimage_rg`}}",
                 "gallery_name": "SIGWVD",
                 "image_name": "windows10_wvd",
-                "image_version": "1.0.0",
+                "image_version": "1.0.{{user `Build_BuildNumber`}}",
                 "replication_regions": [
                     "eastus"
                 ]
