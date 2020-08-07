@@ -72,9 +72,10 @@
           "$Usr='Azure\\'+\"{{user `AppInstallsStorageAccountName`}}\"",
           "$Path = \"{{user `packaged_app_installs_path`}}\"",
           "$Password = \"{{user `AppInstallsStorageAccountKey`}}\"",
-          "Write-Host + \" User: \" + $Usr + \" Path: \" + $Path + \" Password: \"  + $Password ",
+          "Write-Host + \" User: \"  $Usr  \" Path: \"  $Path \" Password: \"   $Password ",
           "New-SmbMapping -LocalPath J: -RemotePath \"$Path\" -Username \"$Usr\" -Password \"$Password\"",
-          "Write-Host \"'J:' drive mapped\"",
+          "$smb = Get-SmbMapping -LocalPath J:",
+          "Write-Host \"'J:' drive mapped to \" $smb.remotepath",
 
           "Set-MpPreference -DisableRealtimeMonitoring $true",
           "Write-Host \"Defender RealTime scanning temporarily disabled\"",
