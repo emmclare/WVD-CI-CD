@@ -63,31 +63,7 @@
           "Write-Host \"Chocolatey Installed.\""
       ]
     },
-    {
-      "type": "powershell",
-      "inline": [
-          "$ErrorActionPreference='Stop'",
 
-          "Import-Module -Name Smbshare -Force -Scope Local",
-          "$Usr='Azure\\'+\"{{user `AppInstallsStorageAccountName`}}\"",
-          "$Path = \"{{user `packaged_app_installs_path`}}\"",
-          "$Password = \"{{user `AppInstallsStorageAccountKey`}}\"",
-          "Write-Host + \" User: \"  $Usr  \" Path: \"  $Path \" Password: \"   $Password ",
-          "New-SmbMapping -LocalPath J: -RemotePath \"$Path\" -Username \"$Usr\" -Password \"$Password\"",
-          "$smb = Get-SmbMapping -LocalPath J:",
-          "Write-Host \"'J:' drive mapped to \" $smb.remotepath",
-
-          "Copy-Item -Path \"J:\" -Destination \"C:\\temp\" -recurse -Force", 
-
-          "Set-MpPreference -DisableRealtimeMonitoring $true",
-          "Write-Host \"Defender RealTime scanning temporarily disabled\"",
-         
-
-          "& \"C:\\temp\\FSLogix\\FSLogix.cmd\"",
-          "Write-Host \"'FSLogix\\Latest' installed\""
-          
-      ]
-    },
     {
       "type": "powershell",
       "inline": [
