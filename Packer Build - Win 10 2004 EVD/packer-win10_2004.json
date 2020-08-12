@@ -8,11 +8,14 @@
     "wvd_goldimage_rg": "{{env `wvd_goldimage_rg`}}",
     "az_tenant_id": "{{env `az_tenant_id`}}",
     "subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
+    "gallery_name" : "{{env `gallery_name`}}",
+    "imageDefinitionName": "{{env `imageDefinitionName`}}",
 
     "packaged_app_installs_path": "{{env `packaged_app_installs_path`}}",
 
     "Build_DefinitionName": "{{env `Build_DefinitionName`}}",
-    "Build_BuildNumber": "{{env `Build_BuildNumber`}}"
+    "Build_BuildNumber": "{{env `Build_BuildNumber`}}",
+    "location" : "{{env `Location`}}"
   },
   "builders": [
     {
@@ -24,8 +27,7 @@
       "subscription_id": "{{user `subscription_id`}}",
 
       "os_type": "Windows",
-      "managed_image_name": "{{user `Build_DefinitionName` | clean_image_name}}-{{isotime \"2006-01-02-1504\"}}-Build{{user `Build_BuildNumber`}}",
-      "managed_image_resource_group_name": "{{user `wvd_goldimage_rg`}}",
+
       
       "image_publisher": "MicrosoftWindowsDesktop",
       "image_offer": "Windows-10",
@@ -42,26 +44,22 @@
       "virtual_network_subnet_name": "Subnet-PackerImage",
       "private_virtual_network_with_public_ip": "True",
       "virtual_network_resource_group_name": "Packer-Build",
-      "azure_tags": {
-          "Project": "Packer IT Image"
-      },
       
-      "location": "East US",
+      
+      "location": "{{user `location`}}",
       "vm_size": "Standard_B2S",
-
-      "async_resourcegroup_delete":true,
 
       "shared_image_gallery_destination": {
                 "resource_group": "{{user `wvd_goldimage_rg`}}",
                 "gallery_name": "{{user `gallery_name`}}",
                 "image_name": "{{user `imageDefinitionName`}}",
-                "image_version": "1.0.{{user `Build_BuildNumber`}}",
-                "replication_regions": [
-                    "{{user `location`}}"
-                ]
-            }
+                "image_version": "1.1.{{user `Build_BuildNumber`}}",
+                "replication_regions": "{{user `location`}}"
+            },
 
-
+      "managed_image_name": "{{user `Build_DefinitionName` | clean_image_name}}-{{isotime \"2006-01-02-1504\"}}-Build{{user `Build_BuildNumber`}}",
+      "managed_image_resource_group_name": "{{user `wvd_goldimage_rg`}}",
+      "async_resourcegroup_delete": true
 
     }
   ],
