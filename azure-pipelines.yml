@@ -10,7 +10,7 @@ variables:
 steps:
 - task: AzureImageBuilderTask@1
   inputs:
-    managedIdentity: '$(managedId)'
+    managedIdentity: '$(managedIdentity)'
     imageSource: 'marketplace'
     baseImage: 'MicrosoftWindowsDesktop:Windows-10:19h1-evd'
     baseImagePubOfferSku: 'MicrosoftWindowsDesktop:Windows-10:20h1-evd'
