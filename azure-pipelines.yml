@@ -21,3 +21,5 @@ steps:
     ibSubscription: 'GH-ADO-SP'
     ibAzureResourceGroup: 'RG-WVD-DEVOPS'
     ibLocation: 'eastus'
+variables:
+- group: Build Variables
