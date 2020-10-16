@@ -7,17 +7,17 @@ steps:
 - task: AzureImageBuilderTask@1
   displayName: 'Azure VM Image Builder Task'
   inputs:
-    managedIdentity: $(managedId)
-    imageSource: marketplace
+    managedIdentity: '$(managedId)'
+    imageSource: 'marketplace'
     baseImage: 'MicrosoftWindowsDesktop:Windows-10:19h1-evd'
     baseImagePubOfferSku: 'MicrosoftWindowsDesktop:Windows-10:20h1-evd'
-    provisioner: powershell
+    provisioner: 'powershell'
     packagePath: 'scripts'
     inlineScript: '''& set-executionpolicy remotesigned -scope Process -Force; c:\BuildArtifacts\WVD\imageBuildcustomisation.ps1'''
-    storageAccountName: $(storageAccountName)
-    distributeType: sig
-    galleryImageId: $(galleryImageId)
-    replicationRegions: WestUS
-    ibSubscription: $(subscriptionId)
+    storageAccountName: '$(storageAccountName)'
+    distributeType: 'sig'
+    galleryImageId: '$(galleryImageId)'
+    replicationRegions: 'WestUS'
+    ibSubscription: 'GH-ADO-SP'
     ibAzureResourceGroup: 'RG-WVD-DEVOPS'
-    ibLocation: eastus
+    ibLocation: 'eastus'
