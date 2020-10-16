@@ -19,7 +19,7 @@ steps:
     inlineScript: '''& set-executionpolicy remotesigned -scope Process -Force; c:\BuildArtifacts\imageBuildcustomisation.ps1'''
     storageAccountName: '$(storageAccountName)'
     distributeType: 'sig'
-    galleryImageId: '$(galleryImageId)'
+    galleryImageId: '$(sharedGalleryImage)'
     replicationRegions: 'WestUS'
     ibSubscription: 'GH-ADO-SP'
     ibAzureResourceGroup: 'RG-WVD-DEVOPS'
