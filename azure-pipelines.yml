@@ -3,9 +3,12 @@ trigger:
 
 pool:
   name: Azure Pipelines
+
+variables:
+- group: 'Build Variables'
+
 steps:
 - task: AzureImageBuilderTask@1
-  displayName: 'Azure VM Image Builder Task'
   inputs:
     managedIdentity: '$(managedId)'
     imageSource: 'marketplace'
@@ -13,7 +16,7 @@ steps:
     baseImagePubOfferSku: 'MicrosoftWindowsDesktop:Windows-10:20h1-evd'
     provisioner: 'powershell'
     packagePath: 'scripts'
-    inlineScript: '''& set-executionpolicy remotesigned -scope Process -Force; c:\BuildArtifacts\WVD\imageBuildcustomisation.ps1'''
+    inlineScript: '''& set-executionpolicy remotesigned -scope Process -Force; c:\BuildArtifacts\imageBuildcustomisation.ps1'''
     storageAccountName: '$(storageAccountName)'
     distributeType: 'sig'
     galleryImageId: '$(galleryImageId)'
@@ -21,5 +24,3 @@ steps:
     ibSubscription: 'GH-ADO-SP'
     ibAzureResourceGroup: 'RG-WVD-DEVOPS'
     ibLocation: 'eastus'
-variables:
-- group: Build Variables
